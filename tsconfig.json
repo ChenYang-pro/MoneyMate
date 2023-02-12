@@ -18,10 +18,15 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "resolveJsonModule": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "baseUrl": ["."],
+      "@/*": ["./src/*"],
+      "@api/*": ["./src/api/*"],
+      "@common/*": ["./src/common/*"],
+      "@components/*": ["./src/components/*"]
+    }
   },
-  "include": ["./src", "./types"],
+  "include": ["./src", "./types", "src/pages/statistics/.config.ts", "src/pages/statistics/.config.ts"],
   "compileOnSave": false
 }

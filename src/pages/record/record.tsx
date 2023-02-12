@@ -1,7 +1,7 @@
 import { Component, PropsWithChildren } from "react";
 import NavBar from "@components/NavBar/NavBar";
 
-import styles from "./index.module.less";
+import styles from "./record.module.less";
 
 export default class Index extends Component<PropsWithChildren> {
   componentWillMount() {}
@@ -17,10 +17,10 @@ export default class Index extends Component<PropsWithChildren> {
   render() {
     return (
       <div className={styles.content}>
-        <NavBar title='首页' />
+        <NavBar title='记账' />
 
         <div className={styles.body}>
-          <div>body</div>
+          <div>record</div>
         </div>
       </div>
     );
