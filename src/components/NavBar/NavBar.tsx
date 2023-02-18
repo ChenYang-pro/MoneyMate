@@ -14,7 +14,11 @@ const NavBarCompt: FC<INavBarProps> = (props) => {
       duration: 1000,
     });
 
-  return <NavBar onBack={back}>{title}</NavBar>;
+  return (
+    <NavBar onBack={back} style={{ "--border-bottom": "1px #eee solid" }}>
+      {title}
+    </NavBar>
+  );
 };
 
 export default NavBarCompt;
