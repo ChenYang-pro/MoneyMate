@@ -1,1 +1,30 @@
+.content {
+  :global {
+    .adm-capsule-tabs-header {
+      border: 0;
+    }
+    .adm-capsule-tabs-tab {
+      padding: 4px;
+    }
+  }
 
+  .amountRankItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .itemInfo {
+      flex: 1;
+      margin-left: 8px;
+      .itemDesc {
+        display: flex;
+        justify-content: space-between;
+      }
+      .ratioLine {
+        height: 4px;
+        width: 100%;
+        background-color: rgb(227, 169, 21);
+        border-radius: 3px;
+      }
+    }
+  }
+}

@@ -1,16 +1,23 @@
 import Money from "@/components/Money";
 import SpendDetail from "@/components/SpendDetail";
 import TabBarCompt from "@/components/TabBar/TabBar";
-import NavBar from "@components/NavBar/NavBar";
+import NavContext from "@/context/NavContext";
 import TimerPicker from "@components/TimerPicker";
 import { Divider } from "antd-mobile";
-import { useCallback } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { data } from "./data";
 
 import styles from "./index.module.less";
 
 const Index = () => {
   const { time, money } = data.header;
+
+  const navContext = useContext(NavContext);
+
+  useEffect(() => {
+    navContext?.setNavBar?.({ children: "首页", backArrow: false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const RenderMoney = useCallback(() => {
     return (
@@ -23,8 +30,7 @@ const Index = () => {
   }, [money]);
 
   return (
-    <div className={styles.index}>
-      <NavBar title='首页' />
+    <>
       <div className={styles.content}>
         <TimerPicker {...time} />
         <Divider
@@ -37,7 +43,7 @@ const Index = () => {
         <TabBarCompt />
       </div>
       <SpendDetail spendDetails={data.spendDetails} />
-    </div>
+    </>
   );
 };
 

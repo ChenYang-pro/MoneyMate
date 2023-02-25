@@ -1,32 +1,28 @@
-import { Component } from "react";
-import TabBar from "@components/TabBar/TabBar";
+import { useState } from "react";
+import NavBar from "@components/NavBar";
+import TabBar from "@components/TabBar";
+import NavContext from "./context/NavContext";
 
 import "./app.css";
 
-class App extends Component {
-  // 可以使用所有的 React 生命周期方法
-  componentDidMount() {}
+const App = (props) => {
+  const [navBar, setNavBar] = useState({ children: "记账" });
 
-  // 对应 onLaunch
-  onLaunch() {}
-
-  // 对应 onShow
-  componentDidShow() {}
-
-  // 对应 onHide
-  componentDidHide() {}
-
-  render() {
-    // 在入口组件不会渲染任何内容，但我们可以在这里做类似于状态管理的事情
-    return (
-      <div className='app'>
-        <div className='body'>{this.props.children}</div>
+  return (
+    <div className='app'>
+      <NavContext.Provider
+        value={{
+          setNavBar: setNavBar,
+        }}
+      >
+        <NavBar {...navBar} />
+        <div className='body'>{props.children}</div>
         <div className='tabBar'>
           <TabBar />
         </div>
-      </div>
-    );
-  }
-}
+      </NavContext.Provider>
+    </div>
+  );
+};
 
 export default App;

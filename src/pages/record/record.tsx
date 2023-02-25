@@ -17,7 +17,7 @@ export default class Index extends Component<PropsWithChildren> {
   render() {
     return (
       <div className={styles.content}>
-        <NavBar title='记账' />
+        <NavBar content='记账' />
 
         <div className={styles.body}>
           <div>record</div>

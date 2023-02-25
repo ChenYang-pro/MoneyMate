@@ -7,7 +7,7 @@ import styles from "./index.module.less";
 type IDetails = {
   code: number;
   price: string;
-  desc;
+  desc: string;
 };
 
 type IDetailInfo = {

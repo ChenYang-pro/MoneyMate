@@ -8,7 +8,7 @@ type IPriceProps = {
 };
 
 const Price: FC<IPriceProps> = (props) => {
-  const { fee, color } = props || {};
+  const { fee, color, priceSize, symbolSize } = props || {};
   if (!fee) {
     return null;
   }
@@ -28,9 +28,15 @@ const Price: FC<IPriceProps> = (props) => {
 
   return (
     <div className={styles.price} style={{ color: color }}>
-      <span className={styles.unit}>&yen;</span>
-      <span className={styles.integer}>{stringifyPrice(fee)?.leftPart}</span>
-      <span className={styles.decimal}>{stringifyPrice(fee)?.rightPart}</span>
+      <span className={styles.unit} style={{ fontSize: symbolSize }}>
+        &yen;
+      </span>
+      <span className={styles.integer} style={{ fontSize: priceSize }}>
+        {stringifyPrice(fee)?.leftPart}
+      </span>
+      <span className={styles.decimal} style={{ fontSize: priceSize }}>
+        {stringifyPrice(fee)?.rightPart}
+      </span>
     </div>
   );
 };

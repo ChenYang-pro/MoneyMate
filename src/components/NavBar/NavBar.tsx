@@ -1,12 +1,8 @@
 import type { FC } from "react";
-import { NavBar } from "antd-mobile";
+import { NavBar, NavBarProps } from "antd-mobile";
 
-type INavBarProps = {
-  title: string;
-};
-
-const NavBarCompt: FC<INavBarProps> = (props) => {
-  const { title } = props || {};
+const NavBarCompt: FC<NavBarProps> = (props) => {
+  const { children, backArrow, style } = props || {};
 
   const back = () =>
     console.log({
@@ -15,8 +11,12 @@ const NavBarCompt: FC<INavBarProps> = (props) => {
     });
 
   return (
-    <NavBar onBack={back} style={{ "--border-bottom": "1px #eee solid" }}>
-      {title}
+    <NavBar
+      onBack={back}
+      backArrow={backArrow}
+      style={{ "--border-bottom": "1px #eee solid", ...style }}
+    >
+      {children}
     </NavBar>
   );
 };
